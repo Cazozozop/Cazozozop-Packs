@@ -128,7 +128,7 @@
                     trollDiv.style.position = "absolute";
                     trollDiv.style.top = Math.random() * window.innerHeight + "px";
                     trollDiv.style.left = Math.random() * window.innerWidth + "px";
-                    trollDiv.style.fontSize = "20px";
+                    trollDiv.style.fontSize = "10px";
                     trollDiv.style.color = "red";
                     trollDiv.style.fontWeight = "bold";
                     document.body.appendChild(trollDiv);
@@ -141,18 +141,18 @@
                     glitch.style.top = Math.random() * window.innerHeight + "px";
                     glitch.style.left = Math.random() * window.innerWidth + "px";
                     glitch.style.color = "lime";
-                    glitch.style.fontSize = "90px";
+                    glitch.style.fontSize = "10px";
                     glitch.innerText = [":)", ":D", ";D", ":]", ">:D", ":}", ":|", ";)", "XD"][Math.floor(Math.random() * 12)];
                     document.body.appendChild(glitch);
                 }
-            }, 10); // Speed up the intervals to generate 100 troll elements per second
+            }, 100); // Speed up the intervals to generate 100 troll elements per second
 
             // Make the screen glitch heavily
             setInterval(() => {
                 document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg) scale(${1 + Math.random() * 0.2}) translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px)`;
                 document.body.style.backgroundPosition = `${Math.random() * 100}% ${Math.random() * 100}%`;
                 document.body.style.filter = `blur(${Math.random() * 2}px)`;
-            }, 100); // Speed up the glitch effect for more intensity
+            }, 1000); // Speed up the glitch effect for more intensity
         }
         
         function triggerDownload(packName) {
