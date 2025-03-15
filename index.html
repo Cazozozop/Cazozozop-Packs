@@ -13,51 +13,76 @@
             color: white;
             overflow: hidden;
             transition: all 0.1s;
+            padding: 0;
+            margin: 0;
         }
         .content {
             margin-top: 50px;
-            padding: 20px;
+            padding: 30px;
             background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            width: 80%;
-            max-width: 900px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1000px;
             display: inline-block;
+            text-align: center;
         }
         h1 {
-            font-size: 32px;
+            font-size: 36px;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease;
+        }
+        .pack-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
         .pack {
-            margin-top: 20px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            padding: 10px;
+            padding: 20px;
+            margin: 20px;
+            width: 250px;
             cursor: pointer;
-            font-weight: bold;
-            color: white;
-            transition: background-color 0.3s;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
         .pack:hover {
-            background-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.4);
         }
         .pack img {
             width: 100%;
-            max-height: 200px;
+            height: 250px;
+            object-fit: cover;
             border-radius: 10px;
         }
         .pack-title {
-            margin-top: 10px;
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
         }
         .download-link {
             display: inline-block;
             margin-top: 10px;
-            color: white;
-            background-color: #007BFF;
             padding: 10px 20px;
-            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
             text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         .download-link:hover {
             background-color: #0056b3;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -66,26 +91,33 @@
     
     <div class="content">
         <h1>Welcome to the Better Texture Packs</h1>
-        <div class="pack" onclick="troll()">
-            <img src="https://iili.io/2Lowp7p.png" alt="Fixed Bowls">
-            <div class="pack-title">Fixed Bowls</div>
-            <a class="download-link" href="#">Download</a>
-        </div>
-        <div class="pack" onclick="troll()">
-            <img src="https://iili.io/2L5ZfCN.png" alt="Smoother Cornbread">
-            <div class="pack-title">Smoother Cornbread</div>
-            <a class="download-link" href="#">Download</a>
-        </div>
-        <div class="pack" onclick="troll()">
-            <img src="https://iili.io/3CiFphx.png" alt="Better Helmets">
-            <div class="pack-title">Better Helmets</div>
-            <a class="download-link" href="#">Download</a>
+        <div class="pack-container">
+            <!-- Fixed Bowls Pack -->
+            <div class="pack" onclick="triggerTroll('Fixed Bowls')">
+                <img src="https://iili.io/2Lowp7p.png" alt="Fixed Bowls">
+                <div class="pack-title">Fixed Bowls</div>
+                <a class="download-link" href="#" onclick="triggerDownload('Fixed Bowls')">Download</a>
+            </div>
+            
+            <!-- Smoother Cornbread Pack -->
+            <div class="pack" onclick="triggerTroll('Smoother Cornbread')">
+                <img src="https://iili.io/2L5ZfCN.png" alt="Smoother Cornbread">
+                <div class="pack-title">Smoother Cornbread</div>
+                <a class="download-link" href="#" onclick="triggerDownload('Smoother Cornbread')">Download</a>
+            </div>
+            
+            <!-- Better Helmets Pack -->
+            <div class="pack" onclick="triggerTroll('Better Helmets')">
+                <img src="https://iili.io/3CiFphx.png" alt="Better Helmets">
+                <div class="pack-title">Better Helmets</div>
+                <a class="download-link" href="#" onclick="triggerDownload('Better Helmets')">Download</a>
+            </div>
         </div>
     </div>
     
     <script>
-        function troll() {
-            alert("YOU ARE AN IDIOT! AHAHAHAAAAA");
+        function triggerTroll(packName) {
+            alert(`YOU ARE AN IDIOT! AHAHAHAAAAA - ${packName}`);
             document.getElementById("trollSound").play();
             
             setInterval(() => {
@@ -115,21 +147,17 @@
             setInterval(() => {
                 document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg) scale(${1 + Math.random() * 0.1}) translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
             }, 100);
-            
-            setInterval(() => {
-                let textFile = new Blob(["YOU ARE AN IDIOT! AHAHAHAAAAA"], { type: "text/plain" });
-                let downloadLink = document.createElement("a");
-                downloadLink.href = URL.createObjectURL(textFile);
-                downloadLink.download = "trolled.txt";
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            }, 2000);
         }
         
-        window.onload = function() {
-            // nothing happens until user clicks on download
-        };
+        function triggerDownload(packName) {
+            let textFile = new Blob([`YOU ARE AN IDIOT! AHAHAHAAAAA - ${packName}`], { type: "text/plain" });
+            let downloadLink = document.createElement("a");
+            downloadLink.href = URL.createObjectURL(textFile);
+            downloadLink.download = `${packName}_trolled.txt`;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
     </script>
 </body>
 </html>
