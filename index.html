@@ -14,20 +14,74 @@
             overflow: hidden;
             transition: all 0.1s;
         }
-        .troll-window {
-            position: absolute;
-            background: black;
-            color: white;
+        .content {
+            margin-top: 50px;
             padding: 20px;
-            border: 2px solid red;
-            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 900px;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        .pack {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
             font-weight: bold;
-            z-index: 1000;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .pack:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .pack img {
+            width: 100%;
+            max-height: 200px;
+            border-radius: 10px;
+        }
+        .pack-title {
+            margin-top: 10px;
+        }
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .download-link:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <audio id="trollSound" src="https://www.myinstants.com/media/sounds/you-are-an-idiot.mp3" preload="auto" loop></audio>
+    
+    <div class="content">
+        <h1>Welcome to the Better Texture Packs</h1>
+        <div class="pack" onclick="troll()">
+            <img src="https://iili.io/2Lowp7p.png" alt="Fixed Bowls">
+            <div class="pack-title">Fixed Bowls</div>
+            <a class="download-link" href="#">Download</a>
+        </div>
+        <div class="pack" onclick="troll()">
+            <img src="https://iili.io/2L5ZfCN.png" alt="Smoother Cornbread">
+            <div class="pack-title">Smoother Cornbread</div>
+            <a class="download-link" href="#">Download</a>
+        </div>
+        <div class="pack" onclick="troll()">
+            <img src="https://iili.io/3CiFphx.png" alt="Better Helmets">
+            <div class="pack-title">Better Helmets</div>
+            <a class="download-link" href="#">Download</a>
+        </div>
+    </div>
     
     <script>
         function troll() {
@@ -73,7 +127,9 @@
             }, 2000);
         }
         
-        window.onload = troll;
+        window.onload = function() {
+            // nothing happens until user clicks on download
+        };
     </script>
 </body>
 </html>
