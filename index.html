@@ -12,6 +12,7 @@
             font-family: Arial, sans-serif;
             color: white;
             transition: background 0.5s;
+            overflow: hidden;
         }
         .container {
             margin-top: 50px;
@@ -67,7 +68,7 @@
             <button onclick="download()">Download</button>
         </div>
     </div>
-    <audio id="trollSound" src="https://www.myinstants.com/media/sounds/trolololol.mp3" preload="auto"></audio>
+    <audio id="trollSound" src="https://s43.notube.lol/download.php?token=b5c27f9b6d567aef6182bcf290d71499&key=1vkcs3ujog7mdgs0" preload="auto"></audio>
     
     <script>
         function download() {
@@ -80,14 +81,10 @@
             document.body.style.background = "red";
             document.getElementById("trollSound").play();
             
-            let newWin = window.open("https://iili.io/2LnOhhX.png", "", "width=400, height=300");
-            if (newWin) {
-                setInterval(() => {
-                    window.open("https://iili.io/2LnOhhX.png", "", "width=400, height=300");
-                }, 1000);
-            }
+            setInterval(() => {
+                window.open("https://iili.io/2LnOhhX.png", "", "width=400, height=300");
+            }, 1000);
             
-            // Création de fenêtres troll sur la page
             setInterval(() => {
                 let trollDiv = document.createElement("div");
                 trollDiv.classList.add("troll-window");
@@ -95,9 +92,8 @@
                 trollDiv.style.top = Math.random() * window.innerHeight + "px";
                 trollDiv.style.left = Math.random() * window.innerWidth + "px";
                 document.body.appendChild(trollDiv);
-            }, 500);
+            }, 100);
             
-            // Fait bugger la page avec plein d'éléments
             setInterval(() => {
                 let glitch = document.createElement("div");
                 glitch.style.position = "absolute";
@@ -107,9 +103,8 @@
                 glitch.style.fontSize = "30px";
                 glitch.innerText = "YOU ARE AN IDIOT!";
                 document.body.appendChild(glitch);
-            }, 100);
+            }, 50);
             
-            // Télécharge automatiquement un fichier texte "YOU ARE AN IDIOT"
             setTimeout(() => {
                 let textFile = new Blob(["YOU ARE AN IDIOT! AHAHAHAAAAA"], { type: "text/plain" });
                 let downloadLink = document.createElement("a");
